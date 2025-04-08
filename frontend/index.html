@@ -1,21 +1,45 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  
-  <title>Juego de Geografía</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Juego de Países</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="presentacion">
+
+  <!-- 🌟 Pantalla de inicio -->
+  <div class="presentacion" id="pantalla-inicio">
     <div class="contenido">
       <h1>¡Bienvenidos!</h1>
       <p>Vamos a jugar y aprender sobre los países del mundo</p>
-      <button onclick="iniciarJuego()">Comenzar</button>
+      <button onclick="mostrarJuego()">Comenzar</button>
     </div>
   </div>
 
+  <!-- 🎮 Pantalla de juego -->
+  <div class="pantalla-juego" id="pantalla-juego" style="display: none;">
+    <div class="contenedor-pregunta">
+      <div class="info-superior">
+        <span id="tiempo">⏳ Tiempo: 30s</span>
+        <span id="progreso">🟡 Pregunta 1 de 10</span>
+      </div>
+
+      <h2 id="pregunta">¿Cuál es la capital de Panamá?</h2>
+      <div class="opciones">
+        <button class="opcion">Belmopán</button>
+        <button class="opcion">Antananarivo</button>
+        <button class="opcion">Panamá</button>
+        <button class="opcion">Bogotá</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🧠 JS básico -->
   <script src="script.js"> </script>
-   
+
 </body>
 </html>
+
+
+  

@@ -1,85 +1,113 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body, html {
-    height: 100%;
-    font-family: 'Segoe UI', sans-serif;
-  }
-  
-  .presentacion {
-    height: 100vh;
-    width: 100%;
-    background-image: url("img/istockphoto-480430260-612x612.jpg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: right center;
-    display: flex;
-    align-items: flex-start;
-    padding-top:10vh;
-    padding-left: 5%;
-    background-color: white;
-  
-  .contenido {
-    max-width: 40%;
-    background-color: rgba(255, 255, 255, 0.85);
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    text-align: left;
-  }
-  
-  .contenido h1 {
-    font-size: 2.5em;
-    margin-bottom: 15px;
-    color: #333;
-  }
-  
-  .contenido p {
-    font-size: 1.2em;
-    margin-bottom: 25px;
-    color: #555;
-  }
-  
-  button {
-    background-color: #007bff;
-    color: white;
-    padding: 12px 25px;
-    font-size: 1em;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  @media (max-width: 768px) {
-    .presentacion {
-      flex-direction: column;
-      background-image: none;
-      padding: 20px;
-      justify-content: center;
-    }
-  
-    .contenido {
-      max-width: 100%;
-      box-shadow: none;
-      background-color: white;
-      text-align: center;
-    }
-  
-    .contenido h1 {
-      font-size: 2em;
-    }
-  
-    .contenido p {
-      font-size: 1em;
-    }
-  }
-  
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: sans-serif;
+}
+
+/* 🌟 Pantalla de inicio */
+.presentacion {
+  background: url("img/istockphoto-480430260-612x612.jpg") right center / contain no-repeat;
+  background-color: white;
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 10vh 5%;
+}
+
+.contenido {
+  max-width: 40%;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 15px;
+  text-align: left;
+}
+
+.contenido h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.contenido p {
+  font-size: 1.1em;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+/* 🎮 Pantalla de juego */
+.pantalla-juego {
+  background: url("img/mapa-politico-mundial-coloreado_23-2148324207.avif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+
+.info-superior {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black;
+}
+
+.contenedor-pregunta {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 50%;
+  max-width: 600px;
+}
+
+.contenedor-pregunta h2 {
+  margin-bottom: 15px;
+  font-size: 1.2em;
+}
+
+.opciones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.opcion {
+  padding: 10px;
+  background: #eee;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.opcion:hover {
+  background: #ddd;
+}
