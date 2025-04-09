@@ -7,35 +7,50 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+   
+ 
+ <div class="pantalla" id="pantalla-inicio" style="display: flex;">
+  <div class="cuadro">
+    <h1>¡Bienvenidos!</h1>
+    <p>Vamos a jugar y aprender sobre los países del mundo</p>
+    <button onclick="jugar()">Comenzar</button>
+  </div>
+</div>
 
-  <!-- 🌟 Pantalla de inicio -->
-  <div class="presentacion" id="pantalla-inicio">
-    <div class="contenido">
-      <h1>¡Bienvenidos!</h1>
-      <p>Vamos a jugar y aprender sobre los países del mundo</p>
-      <button onclick="mostrarJuego()">Comenzar</button>
+
+<div class="pantalla" id="pantalla-juego">
+  <div class="cuadro">
+    <div class="info-superior">
+      <span id="tiempo">⏳ Tiempo: 0s</span>
+      <span id="progreso">🟡 Pregunta 1 de 10</span>
+    </div>
+
+    <h2 id="pregunta">¿Cuál es la capital de Panamá?</h2>
+    <div class="opciones">
+      <button onclick="responder(false)">Belmopán</button>
+      <button onclick="responder(false)">Antananarivo</button>
+      <button onclick="responder(true)">Panamá</button>
+      <button onclick="responder(false)">Bogotá</button>
     </div>
   </div>
+</div>
 
-  <!-- 🎮 Pantalla de juego -->
-  <div class="pantalla-juego" id="pantalla-juego" style="display: none;">
-    <div class="contenedor-pregunta">
-      <div class="info-superior">
-        <span id="tiempo">⏳ Tiempo: 30s</span>
-        <span id="progreso">🟡 Pregunta 1 de 10</span>
-      </div>
+<div class="pantalla" id="pantalla-resultados">
+  <div class="cuadro">
+    <h2> Resultados de la partida</h2>
+    <p>✅ Correctas: <span id="resultado-correctas">0</span></p>
+    <p>❌ Incorrectas: <span id="resultado-incorrectas">0</span></p>
+    <p>⏱️ Tiempo total: <span id="resultado-tiempo-total">0</span> segundos</p>
+    <p>📊 Tiempo promedio: <span id="resultado-tiempo-promedio">0</span> segundos</p>
 
-      <h2 id="pregunta">¿Cuál es la capital de Panamá?</h2>
-      <div class="opciones">
-        <button class="opcion">Belmopán</button>
-        <button class="opcion">Antananarivo</button>
-        <button class="opcion">Panamá</button>
-        <button class="opcion">Bogotá</button>
-      </div>
+    <div class="botones">
+      <button onclick="mostrarRanking()">Ver ranking</button>
+      <button onclick="reiniciarJuego()">Volver a jugar</button>
     </div>
   </div>
+</div>
 
-  <!-- 🧠 JS básico -->
+  
   <script src="script.js"> </script>
 
 </body>

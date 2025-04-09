@@ -4,47 +4,56 @@
   box-sizing: border-box;
 }
 
-body, html {
+html, body {
   height: 100%;
   font-family: sans-serif;
 }
 
-/* 🌟 Pantalla de inicio */
-.presentacion {
-  background: url("img/istockphoto-480430260-612x612.jpg") right center / contain no-repeat;
-  background-color: white;
+/* Fondo celeste cielo para todo */
+.pantalla {
+  background: linear-gradient(to bottom, #a0d8ef, #e0f7fa);
   height: 100vh;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: 10vh 5%;
+  width: 100vw;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
-.contenido {
-  max-width: 40%;
-  background: rgba(255, 255, 255, 0.9);
+/*  Cuadro central común a todas las pantallas */
+.cuadro {
+  background: white;
   padding: 30px;
   border-radius: 15px;
-  text-align: left;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-.contenido h1 {
-  font-size: 2em;
-  margin-bottom: 10px;
+.cuadro h1, .cuadro h2 {
+  margin-bottom: 20px;
+  font-size: 1.5em;
   color: #333;
 }
 
-.contenido p {
+.cuadro p {
+  margin: 10px 0;
   font-size: 1.1em;
-  margin-bottom: 20px;
-  color: #555;
+}
+
+.botones, .opciones {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 button {
   background: #007bff;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 10px;
   font-size: 1em;
   border-radius: 8px;
   cursor: pointer;
@@ -54,60 +63,12 @@ button:hover {
   background: #0056b3;
 }
 
-/* 🎮 Pantalla de juego */
-.pantalla-juego {
-  background: url("img/mapa-politico-mundial-coloreado_23-2148324207.avif");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-
+/* Línea superior con tiempo y progreso */
 .info-superior {
-  width: 100%;
-  max-width: 600px;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
-  color: white;
-  font-weight: bold;
-  text-shadow: 1px 1px 2px black;
-}
-
-.contenedor-pregunta {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  width: 50%;
-  max-width: 600px;
-}
-
-.contenedor-pregunta h2 {
   margin-bottom: 15px;
-  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
 }
 
-.opciones {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.opcion {
-  padding: 10px;
-  background: #eee;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.opcion:hover {
-  background: #ddd;
-}
