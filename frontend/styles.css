@@ -9,7 +9,7 @@ html, body {
   font-family: sans-serif;
 }
 
-/* Fondo celeste cielo para todo */
+
 .pantalla {
   background: linear-gradient(to bottom, #a0d8ef, #e0f7fa);
   height: 100vh;
@@ -48,6 +48,13 @@ html, body {
   flex-direction: column;
   gap: 10px;
 }
+.botones, .respuesta{
+  margin-top: 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+
 
 button {
   background: #007bff;
@@ -63,7 +70,7 @@ button:hover {
   background: #0056b3;
 }
 
-/* Línea superior con tiempo y progreso */
+
 .info-superior {
   display: flex;
   justify-content: space-between;

@@ -31,14 +31,29 @@ function mostrarPregunta() {
 }
 
 function responder(esCorrecta) {
+  const respuesta = document.getElementById("respuesta");
+
   if (esCorrecta) {
+    respuesta.textContent = "✅ ¡Correcto!";
     correctas++;
   } else {
+    respuesta.textContent = "❌ Incorrecto. La respuesta era: Panamá";
     incorrectas++;
   }
 
-  mostrarPregunta();
+  
+  setTimeout(() => {
+    respuesta.textContent = ""; // Borra el mensaje
+    mostrarPregunta();
+  }, 3000);
 }
+
+ 
+
+  
+
+
+ 
 
 function mostrarPantallaResultados() {
   const tiempoFinal = Date.now();
