@@ -6,7 +6,7 @@ let numeroPregunta = 1;
 const totalPreguntas = 10;
 
 
-// 🔹 Función para cargar países
+
 async function cargarPaises() {
   try {
     const respuesta = await fetch("https://restcountries.com/v3.1/all");
@@ -31,7 +31,7 @@ async function jugar() {
   numeroPregunta = 1;
   tiempoInicio = Date.now();
 
-  await cargarPaises(); // ⬅️ esperamos que se cargue la lista
+  await cargarPaises(); 
 
   mostrarPregunta();
 }
@@ -42,16 +42,16 @@ function mostrarPregunta() {
     return;
   }
 
-  const tipo = Math.floor(Math.random() * 3); // 0, 1 o 2
+  const tipo = Math.floor(Math.random() * 3); 
 
   if (tipo === 0) {
     mostrarPreguntaCapital();
   } else if (tipo === 1) {
-    // mostrarPreguntaBandera(); // la harás más adelante
-    mostrarPreguntaCapital(); // por ahora, repetir capital
+    
+    mostrarPreguntaBandera(); 
   } else {
-    // mostrarPreguntaLimitrofes(); // la harás más adelante
-    mostrarPreguntaCapital(); // por ahora, repetir capital
+    
+    mostrarPreguntaBandera(); 
   }
 }
 
@@ -68,11 +68,21 @@ function elegirPaisConCapital() {
 
 function elegirOpcionesIncorrectas(correcta, campo, cantidad) {
   const opciones = [];
+  let valor;
 
   while (opciones.length < cantidad) {
     const pais = listaPaises[Math.floor(Math.random() * listaPaises.length)];
-    const valor = campo === "capital" ? pais.capital?.[0] : pais.name.common;
+  if (campo === "capital") {
+    if (pais.capital && pais.capital.length > 0) {
+      valor = pais.capital[0];
+    } else {
+      valor = "Sin capital";
+    }
+  } else {
+    valor = pais.name.common;
+  }
 
+   
     if (
       valor &&
       valor !== correcta &&
@@ -113,6 +123,17 @@ function mostrarPreguntaCapital() {
   numeroPregunta++;
 }
 
+function mostrarPreguntaBandera() {
+  const pais = listaPaises[Math.floor(Math.random() * listaPaises.length)];
+  const nombreCorrecto = pais.name.common;
+  const opciones = [nombreCorrecto, ...elegirOpcionesIncorrectas(nombreCorrecto, "nombre", 3)];
+  const mezcladas = opciones.sort(() => Math.random() - 0.5);
+
+  document.getElementById("pregunta").innerHTML = `¿Qué país representa esta bandera?<br><img src="${pais.flags.svg}" alt="Bandera" style="width: 100px;">`;
+  mostrarOpciones(mezcladas, nombreCorrecto);
+  numeroPregunta++;
+}
+
 
 
 function responder(esCorrecta,correcta) {
@@ -128,7 +149,7 @@ function responder(esCorrecta,correcta) {
 
   
   setTimeout(() => {
-    respuesta.textContent = ""; // Borra el mensaje
+    respuesta.textContent = ""; 
     mostrarPregunta();
   }, 3000);
 }
@@ -157,7 +178,7 @@ function mostrarRanking() {
   alert("Aquí se mostrará el ranking en el futuro 🏆");
 }
 
-// Mostrar pantalla inicial al cargar
+
 window.onload = function () {
   document.getElementById("pantalla-inicio").style.display = "flex";
 };
