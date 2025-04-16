@@ -58,13 +58,7 @@ function mostrarPregunta() {
 
 
 
-function elegirPaisConCapital() {
-  let pais;
-  do {
-    pais = listaPaises[Math.floor(Math.random() * listaPaises.length)];
-  } while (!pais.capital || pais.capital.length === 0);
-  return pais;
-}
+
 
 function elegirOpcionesIncorrectas(correcta, campo, cantidad) {
   const opciones = [];
@@ -107,8 +101,12 @@ function mostrarOpciones(opciones, correcta) {
   });
 }
 
-function mostrarPreguntaCapital() {
-  const pais = elegirPaisConCapital();
+function mostrarPreguntaCapital() { 
+  let pais;
+  do {
+    pais = listaPaises[Math.floor(Math.random() * listaPaises.length)];
+  } while (!pais.capital || pais.capital.length === 0);
+
   const nombrePais = pais.name.common;
   const capitalCorrecta = pais.capital[0];
 
@@ -120,7 +118,7 @@ function mostrarPreguntaCapital() {
 
   mostrarOpciones(mezcladas, capitalCorrecta);
 
-  numeroPregunta++;
+  
 }
 
 function mostrarPreguntaBandera() {
@@ -129,9 +127,10 @@ function mostrarPreguntaBandera() {
   const opciones = [nombreCorrecto, ...elegirOpcionesIncorrectas(nombreCorrecto, "nombre", 3)];
   const mezcladas = opciones.sort(() => Math.random() - 0.5);
 
+  document.getElementById("progreso").textContent = `🟡 Pregunta ${numeroPregunta} de ${totalPreguntas}`;
   document.getElementById("pregunta").innerHTML = `¿Qué país representa esta bandera?<br><img src="${pais.flags.svg}" alt="Bandera" style="width: 100px;">`;
   mostrarOpciones(mezcladas, nombreCorrecto);
-  numeroPregunta++;
+  
 }
 
 
@@ -147,7 +146,7 @@ function responder(esCorrecta,correcta) {
     incorrectas++;
   }
 
-  
+  numeroPregunta++;
   setTimeout(() => {
     respuesta.textContent = ""; 
     mostrarPregunta();
